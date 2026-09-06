@@ -11,7 +11,7 @@ public class PrintableList<T> {
 	public PrintableList() {
 		elements = new ArrayList<T>();
 	}
-	
+
 	
 	PrintableList<String> p = new PrintableList("first string", "second string", "third string");
 	

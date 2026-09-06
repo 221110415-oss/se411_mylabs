@@ -2,7 +2,6 @@ package ex01;
 
 import ex01.data.PrintableList;
 
-
 public class MainApp {
 
 	public static void main(String[] args) {
