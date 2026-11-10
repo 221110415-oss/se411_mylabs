@@ -1,0 +1,15 @@
+package lab_09.model;
+
+public enum ECategory {
+
+	SMARTPHONE,
+	LAPTOP,
+	TABLET,
+	SMARTWATCH,
+	HEADPHONES,
+	SPEAKER,
+	CAMERA,
+	GAMING_CONSOLE,
+	TV,
+	OTHER
+}
