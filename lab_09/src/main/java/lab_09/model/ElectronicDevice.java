@@ -1,12 +1,13 @@
 package lab_09.model;
 
-public class ElectronicDevice {
+public class ElectronicDevice extends Item {
 	private ECategory category;
 	private String brand;
 	
 	public ElectronicDevice(int id, String name, String brand, ECategory category) {
 		super(id, name);
 		setBrand(brand);
+		setCategory(category);
 	}
 	
 	public String getBrand() {
@@ -28,5 +29,10 @@ public class ElectronicDevice {
 			throw new IllegalArgumentException("Category cannot be null");
 		}
 		this.category = category;
+	}
+	
+	@Override
+	public String toString() {
+		return "ElectronicDevice [id=" + getId() + ", name=" + getName() + ", brand=" + brand + ", category=" + category + "]";
 	}
 }

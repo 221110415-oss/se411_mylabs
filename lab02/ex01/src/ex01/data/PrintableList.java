@@ -13,8 +13,6 @@ public class PrintableList<T> {
 	}
 
 	
-	PrintableList<String> p = new PrintableList("first string", "second string", "third string");
-	
 	public PrintableList(T... arr) {
 		elements = Arrays.asList(arr);
 	}

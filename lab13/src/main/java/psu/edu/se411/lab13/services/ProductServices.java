@@ -1,5 +1,7 @@
 package psu.edu.se411.lab13.services;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import psu.edu.se411.lab13.model.Product;
@@ -15,6 +17,10 @@ public class ProductServices {
 	}
 	
 	public Iterable<Product> findAll() {
-		return productRepository.findAll();s
+		return productRepository.findAll();
+	}
+	
+	public Optional<Product> findById(Integer id) {
+		return productRepository.findById(id);
 	}
 }

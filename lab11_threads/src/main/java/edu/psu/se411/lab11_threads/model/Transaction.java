@@ -1,5 +1,7 @@
 package edu.psu.se411.lab11_threads.model;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import edu.psu.se411.lab11_threads.exceptions.InsufficientBalanceException;
 
 public class Transaction implements Runnable{
@@ -7,6 +9,12 @@ public class Transaction implements Runnable{
 	private CryptoAccount sender;
 	private CryptoAccount receiver;
 	private Double amount;
+	
+	private static final AtomicInteger counter = new AtomicInteger();
+	
+	public Transaction(CryptoAccount sender, CryptoAccount receiver, Double amount) {
+		this("Trx_" + counter.incrementAndGet(), sender, receiver, amount);
+	}
 	
 	public Transaction(String id, CryptoAccount sender, CryptoAccount receiver, Double amount) {
 		super();
@@ -27,19 +35,17 @@ public class Transaction implements Runnable{
 	}
 	
 	public void execute() throws InsufficientBalanceException {
-		synchronized(sender) {
-			synchronized(receiver) {
-
-				if(sender.getBalance() >= amount) {
-					sender.retrieveFromBalance(amount);
-					receiver.addToBalance(amount);
-				} else {
-					throw new InsufficientBalanceException("Insufficient funds in sender account");
-				}
-				
-			}
+		transfer(sender, receiver, amount);
+	}
+	
+	//only one transfer at a time in the whole system, so no balance can be corrupted
+	private static synchronized void transfer(CryptoAccount sender, CryptoAccount receiver, Double amount) throws InsufficientBalanceException {
+		if(sender.getBalance() >= amount) {
+			sender.retrieveFromBalance(amount);
+			receiver.addToBalance(amount);
+		} else {
+			throw new InsufficientBalanceException("Insufficient funds in sender account");
 		}
-		
 	}
 	
 	public CryptoAccount getSender() {

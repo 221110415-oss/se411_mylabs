@@ -6,7 +6,7 @@ import java.util.List;
 import edu.psu.se411.lab08.observer.IObserver;
 import edu.psu.se411.lab08.observer.ISubject;
 
-public class Sensor implements ISubject {
+public class Sensor implements ISubject, Cloneable {
 	
 	//when you clone this later only clone the state of the sensor, not the observers
 	//State of the sensor

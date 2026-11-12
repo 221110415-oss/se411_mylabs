@@ -14,8 +14,8 @@ public class App {
 	static Logger logger = LoggerFactory.getLogger(App.class);
 
 	public static Integer nbAccounts = 10;
-	public static Double initialBalance = 10000.0;
-	public static Integer nbTransactions = 1000;
+	public static Double initialBalance = 1000.0;
+	public static Integer nbTransactions = 10000;
 
 	public static void main(String[] args) {
 		logger.info("Application is starting...");
@@ -36,8 +36,8 @@ public class App {
 				i--;
 				continue;
 			}
-			int amount = (int) Math.random() * 100;
-			Transaction t = new Transaction("Trx_" + i, sender, receiver, (double) amount);
+			double amount = (double)(Math.random() * 10 + 1);
+			Transaction t = new Transaction("Trx_" + i, sender, receiver, amount);
 			Thread thread = new Thread(t);
 			threads[i] = thread;
 			thread.start();

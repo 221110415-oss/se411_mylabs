@@ -25,7 +25,7 @@ public class Stack<E> {
 	
 	public E pop() {
 		if(elements.isEmpty()) {
-			throw new NoSuchElementException("Stack is empty, cannot pop");
+			throw new NoSuchElementException("Stack is empty,can\u2019t pop");
 		}
 		
 		return elements.remove(elements.size() - 1);

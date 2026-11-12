@@ -2,13 +2,15 @@ package edu.psu.se411.lab07.model;
 
 import java.util.Date;
 
+import edu.psu.se411.lab07.util.MissingInformationException;
+
 public abstract class Bookings { //not an interface because it has fields and methods????
 	private String id;
 	private String fullName;
 	private Date dateOfTravel;
 	private String destination;
 
-	public abstract double computePrice();
+	public abstract double computePrice() throws MissingInformationException;
 
 public Bookings(String id, String fullName, Date dateOfTravel, String destination) {
 	this.id = id;
@@ -17,7 +19,7 @@ public Bookings(String id, String fullName, Date dateOfTravel, String destinatio
 	this.destination = destination;
 }
 	public void setDateOfTravel(Date dateOfTravel) {
-		if(dateOfTravel == null && dateOfTravel.after(new Date())) {
+		if(dateOfTravel == null || dateOfTravel.before(new Date())) {
 			throw new IllegalArgumentException("Date cannot be null or in the past");
 		}
 		this.dateOfTravel = dateOfTravel;

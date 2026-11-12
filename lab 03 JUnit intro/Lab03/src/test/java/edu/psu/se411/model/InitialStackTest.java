@@ -22,7 +22,7 @@ public class InitialStackTest {
 		s.push("string 2");
 		s.push("string 3");
 		String str = s.pop();
-		assertEquals(str, "string 2");
+		assertEquals(str, "string 3");
 	}
 	@Test
 	public void pop_empty_stack() {

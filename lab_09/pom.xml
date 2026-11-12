@@ -17,11 +17,6 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>2.0.16</version>
 		</dependency>
-		<dependency>
-			<groupId>edu.psu.se411</groupId>
-			<artifactId>Lab03-JUnit-Intro</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -40,7 +35,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.5.0</version>
 				<configuration>
-					<mainClass>edu.psu.se411.lab09_inventory.App</mainClass>
+					<mainClass>lab_09.App</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

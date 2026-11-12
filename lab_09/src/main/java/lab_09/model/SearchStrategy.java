@@ -1,5 +1,6 @@
 package lab_09.model;
 
-public interface SearchStrategy {
+@FunctionalInterface
+public interface SearchStrategy<T> {
 	public boolean matches(T item);
 }

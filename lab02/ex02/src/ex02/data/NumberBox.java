@@ -15,6 +15,14 @@ public class NumberBox<T extends Number> {
 		this.element = element;
 	}
 
+	public T getItem() {
+		return getElement();
+	}
+	
+	public void setItem(T item) {
+		setElement(item);
+	}
+
 	
 	public Double add(T other) {
 		return (element.doubleValue() + other.doubleValue());

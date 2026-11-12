@@ -1,6 +1,6 @@
 package lab_09.model;
 
-public class Book {
+public class Book extends Item {
 	private String author;
 	private String isbn;
 	
@@ -19,5 +19,21 @@ public class Book {
 			throw new IllegalArgumentException("Author cannot be null or empty");
 		}
 		this.author = author;
+	}
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	
+	public void setIsbn(String isbn) {
+		if (isbn == null || isbn.isEmpty()) {
+			throw new IllegalArgumentException("Isbn cannot be null or empty");
+		}
+		this.isbn = isbn;
+	}
+	
+	@Override
+	public String toString() {
+		return "Book [id=" + getId() + ", name=" + getName() + ", author=" + author + ", isbn=" + isbn + "]";
 	}
 }

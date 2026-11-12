@@ -1,5 +1,14 @@
 package lab_09.model;
 
-public class SearchByName {
+public class SearchByName implements SearchStrategy<Item> {
+	private String name;
 
+	public SearchByName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public boolean matches(Item item) {
+		return item.getName().equals(name);
+	}
 }

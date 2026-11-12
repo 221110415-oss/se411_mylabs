@@ -1,5 +1,7 @@
 package lab05.model;
 
+import lab05.exceptions.InsufficientFundsException;
+
 public class Wallet {
 	
 	private String walletId;
@@ -27,6 +29,24 @@ public class Wallet {
 	}
 	
 	
+	
+	public void deposit(Double amount) {
+		if(amount == null || amount <= 0) {
+			throw new IllegalArgumentException("Deposit amount must be positive and non-null");
+		}
+		this.balance += amount;
+	}
+	
+	//withdraws money from the wallet to the owner's bank account
+	public void withdraw(Double amount) throws InsufficientFundsException {
+		if(amount == null || amount <= 0) {
+			throw new IllegalArgumentException("Withdraw amount must be positive and non-null");
+		}
+		if(this.balance < amount) {
+			throw new InsufficientFundsException(this.balance, amount);
+		}
+		this.balance -= amount;
+	}
 	
 	public void setWalletId(String walletId) {
 		if(walletId == null || walletId.isEmpty()) {
